@@ -5,8 +5,6 @@ import matplotlib.pyplot as plt
 import matplotlib.image as mpimg
 import os
 import shutil
-
-# Import everything needed to edit/save/watch video clips
 from moviepy.editor import VideoFileClip
 from IPython.display import HTML
 
@@ -71,8 +69,8 @@ def detect(raw_image):
         neg_X1 = int((neg_Y1 - neg_B) / neg_M)
         neg_Y2 = int(imshape[0] / 2 + 50)
         neg_X2 = int((neg_Y2 - neg_B) / neg_M)
-        cv2.putText(processed_image, '- slope = {:.2f}'.format(neg_M), (imshape[1] - 300, 20), cv2.FONT_HERSHEY_SIMPLEX, 1, (255, 0, 0), 2)
-        cv2.putText(processed_image, '- int = {:.2f}'.format(neg_B), (imshape[1] - 300, 50), cv2.FONT_HERSHEY_SIMPLEX, 1, (255, 0, 0), 2)
+        cv2.putText(processed_image, '- slope = {:.2f}'.format(neg_M), (imshape[1] - 300, 30), cv2.FONT_HERSHEY_SIMPLEX, 1, (255, 0, 0), 2)
+        cv2.putText(processed_image, '- int = {:.2f}'.format(neg_B), (imshape[1] - 300, 60), cv2.FONT_HERSHEY_SIMPLEX, 1, (255, 0, 0), 2)
         cv2.line(processed_image, (neg_X1, neg_Y1), (neg_X2, neg_Y2), (255, 0, 0), 10)  # draw lines
     return processed_image
 
@@ -86,5 +84,6 @@ input_video_filenames = os.listdir(in_video_dir_name)
 for video_filename in input_video_filenames:
     clip = VideoFileClip(os.path.join(in_video_dir_name, video_filename))
     processed_clip = clip.fl_image(detect)
-    processed_clip.write_videofile(os.path.join(out_video_dir_name, "processed_" + video_filename), audio=False)
-    print("processed video: ", os.path.join(out_video_dir_name, video_filename))
+    processed_clip_name = os.path.join(out_video_dir_name, "processed_" + video_filename)
+    processed_clip.write_videofile(processed_clip_name, audio=False)
+    print("processed video: ", processed_clip_name)
