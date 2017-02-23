@@ -1,12 +1,9 @@
 # import dependencies
-import matplotlib.pyplot as plt
-import matplotlib.image as mpimg
 import numpy as np
 import cv2
 import os
-import math
 import shutil
-import statistics
+
 
 # prepare filesystem for input and output
 in_dir_name = "test_images/"
