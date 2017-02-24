@@ -13,11 +13,7 @@ The goals of this project are the following:
 
 Below is an example result of my lane line detection pipeline on a video stream:
 
-HTML("""
-<video width="960" height="540" controls>
-  <source src="{0}">
-</video>
-""".format("result_videos/processed_solidWhiteRight.mp4"))
+[![Lane Lines Detection Example](thumbnail.png)](https://www.youtube.com/watch?v=PPtjZ5sC2vk "Lane Lines Detection Example")
 
 ### Reflection
 
