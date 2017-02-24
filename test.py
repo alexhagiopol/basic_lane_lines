@@ -47,6 +47,9 @@ def detect(raw_image):
     masked_edges_image_left = cv2.bitwise_and(edges_image, left_mask)
     masked_edges_image_right = cv2.bitwise_and(edges_image, right_mask)
 
+    cv2.imshow("img",masked_edges_image_left + masked_edges_image_right)
+    cv2.waitKey(0)
+
     # compute lines via hough transform
     left_lines = cv2.HoughLinesP(masked_edges_image_left, rho, theta, threshold, np.array([]), min_line_len, max_line_gap)
     right_lines = cv2.HoughLinesP(masked_edges_image_right, rho, theta, threshold, np.array([]), min_line_len, max_line_gap)
