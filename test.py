@@ -63,11 +63,7 @@ def detect(raw_image):
         left_X1 = (left_Y1 - left_B) / left_M
         left_Y2 = imshape[0] / 2 + 100
         left_X2 = (left_Y2 - left_B) / left_M
-        # draw lane lines and useful data on images
-        cv2.putText(processed_image, '+ slope = {:.2f}'.format(left_M), (imshape[1] - 300, 100),
-                    cv2.FONT_HERSHEY_SIMPLEX, 1, (255, 0, 0), 2)
-        cv2.putText(processed_image, '+ int = {:.2f}'.format(left_B), (imshape[1] - 300, 130), cv2.FONT_HERSHEY_SIMPLEX,
-                    1, (255, 0, 0), 2)
+        # draw lane lines
         cv2.line(processed_image, (int(left_X1), int(left_Y1)), (int(left_X2), int(left_Y2)), (255, 0, 0), 5)  # draw lines
 
     if right_lines is not None:
@@ -80,11 +76,7 @@ def detect(raw_image):
         right_X1 = (right_Y1 - right_B) / right_M
         right_Y2 = imshape[0] / 2 + 100
         right_X2 = (right_Y2 - right_B) / right_M
-        # draw lane lines and useful data on images
-        cv2.putText(processed_image, '+ slope = {:.2f}'.format(right_M), (imshape[1] - 300, 100),
-                    cv2.FONT_HERSHEY_SIMPLEX, 1, (255, 0, 0), 2)
-        cv2.putText(processed_image, '+ int = {:.2f}'.format(right_B), (imshape[1] - 300, 130), cv2.FONT_HERSHEY_SIMPLEX,
-                    1, (255, 0, 0), 2)
+        # draw lane lines
         cv2.line(processed_image, (int(right_X1), int(right_Y1)), (int(right_X2), int(right_Y2)), (255, 0, 0), 5)  # draw lines
 
     return processed_image
