@@ -52,7 +52,7 @@ is used to detect high-gradient edges in the scene. After filtering, applying
 the Canny method, the lane lines become clearly outlined in the following
 example image:
 
-[![image](figures/edges.png)
+![image](figures/edges.png)
 
 The `edge and line segment detection` continues with the Hough transform,
 which detects from among the edge pixels detected by the Canny method
