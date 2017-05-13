@@ -1,9 +1,6 @@
-# Finding Lane Lines on the Road
-[![Udacity - Self-Driving Car NanoDegree](https://s3.amazonaws.com/udacity-sdc/github/shield-carnd.svg)](http://www.udacity.com/drive)
+# Lane Lines Detection
 
 This project uses a combination of Canny Edge Detection and the Hough Transform to detect lane lines in an input video stream.
-
-## Writeup
 
 ### Goals
 The goals of this project are the following:
@@ -19,9 +16,7 @@ an example result of my lane line detection pipeline on a video stream:
 
 [![Lane Lines Detection Example](figures/thumbnail.png)](https://www.youtube.com/watch?v=PPtjZ5sC2vk "Lane Lines Detection Example")
 
-### Reflection
-
-#### 1. Pipeline Description
+#### Pipeline Description
 
 The pipeline begins by preparing the local filesystem to read and write
 images and videos. The pipeline then executes the detect function in a loop
@@ -62,7 +57,7 @@ The final, `line segment combination` step takes the Hough line endpoints for
 the left and right halves of the image and uses them to compute a line of
 best fit via linear regression.
 
-#### 2. Potential Shortcomings
+#### Potential Shortcomings
 
 The first shortcoming of this pipeline is the number of assumptions made
 to make it work on the given video and image datasets. We assumed that
@@ -87,7 +82,7 @@ if the lane lines are estimated to be at a given configuration in frame n,
 then the lane lines are very likely to be near that same configuration in
 lane n + 1. This logic is not implemented in the current pipeline.
 
-#### 3. Future Work
+#### Future Work
 
 The first shortcoming could be addressed by no longer searching for lane
 lines according to a hard coded geometrical search pattern and instead
